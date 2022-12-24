@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/aokuyama/go-study-layered/domain/model/user"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	id, _ := user.NewUserID("abcdef")
+	fmt.Println("Hello, User:", id)
 }

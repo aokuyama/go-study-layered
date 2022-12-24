@@ -1,0 +1,13 @@
+{
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "app",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"msyrus.go-doc",
+				"golang.go"
+			]
+		}
+	}
+}

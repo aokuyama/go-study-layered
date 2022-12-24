@@ -7,19 +7,20 @@ import (
 
 type UserID string
 
-var re *regexp.Regexp
+var re_user_id *regexp.Regexp
 
 func NewUserID(v string) (*UserID, error) {
-	if re == nil {
-		re = regexp.MustCompile(`[^0-9a-zA-Z]`)
-	}
-	if len(v) <= 0 {
+	len := len(v)
+	if len <= 0 {
 		return nil, errors.New("must be more than 1 characters")
 	}
-	if len(v) > 16 {
+	if len > 16 {
 		return nil, errors.New("must be less than 16 characters")
 	}
-	if re.MatchString(v) {
+	if re_user_id == nil {
+		re_user_id = regexp.MustCompile(`[^0-9a-zA-Z]`)
+	}
+	if re_user_id.MatchString(v) {
 		return nil, errors.New("must be alphanumeric")
 	}
 	i := UserID(v)

@@ -9,23 +9,23 @@ import (
 )
 
 func TestFirstName(t *testing.T) {
-	var i *FirstName
+	var n *FirstName
 	var err error
-	i, err = NewFirstName("1")
-	assert.Equal(t, "1", i.String(), "有効な苗字")
+	n, err = NewFirstName("1")
+	assert.Equal(t, "1", n.String(), "有効な苗字")
 	assert.NoError(t, err)
-	i, err = NewFirstName("ああああああああ")
-	assert.Equal(t, "ああああああああ", i.String(), "有効な苗字")
+	n, err = NewFirstName("ああああああああ")
+	assert.Equal(t, "ああああああああ", n.String(), "有効な苗字")
 	assert.NoError(t, err)
 }
 
 func TestErrorFirstName(t *testing.T) {
-	var i *FirstName
+	var n *FirstName
 	var err error
-	i, err = NewFirstName("")
-	assert.Nil(t, i)
+	n, err = NewFirstName("")
+	assert.Nil(t, n)
 	assert.Error(t, err, "0文字は許容しない")
-	i, err = NewFirstName("ああああああああa")
-	assert.Nil(t, i)
+	n, err = NewFirstName("ああああああああa")
+	assert.Nil(t, n)
 	assert.Error(t, err, "8文字超えは許容しない")
 }

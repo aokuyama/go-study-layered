@@ -9,29 +9,29 @@ import (
 )
 
 func TestEmail(t *testing.T) {
-	var i *Email
+	var m *Email
 	var err error
-	i, err = NewEmail("ok@exmaple.com")
-	assert.Equal(t, "ok@exmaple.com", i.String(), "有効なメールアドレス")
+	m, err = NewEmail("ok@exmaple.com")
+	assert.Equal(t, "ok@exmaple.com", m.String(), "有効なメールアドレス")
 	assert.NoError(t, err)
-	i, err = NewEmail("1@exmaple.com")
-	assert.Equal(t, "1@exmaple.com", i.String(), "有効なメールアドレス")
+	m, err = NewEmail("1@exmaple.com")
+	assert.Equal(t, "1@exmaple.com", m.String(), "有効なメールアドレス")
 	assert.NoError(t, err)
 }
 
 func TestErrorEmail(t *testing.T) {
-	var i *Email
+	var m *Email
 	var err error
-	i, err = NewEmail("")
-	assert.Nil(t, i)
+	m, err = NewEmail("")
+	assert.Nil(t, m)
 	assert.Error(t, err, "不正なメールアドレス")
-	i, err = NewEmail("abcdeFGHI123")
-	assert.Nil(t, i)
+	m, err = NewEmail("abcdeFGHI123")
+	assert.Nil(t, m)
 	assert.Error(t, err, "不正なメールアドレス")
-	i, err = NewEmail("ok@@exmaple.com")
-	assert.Nil(t, i)
+	m, err = NewEmail("ok@@exmaple.com")
+	assert.Nil(t, m)
 	assert.Error(t, err, "不正なメールアドレス")
-	i, err = NewEmail("@exmaple.com")
-	assert.Nil(t, i)
+	m, err = NewEmail("@exmaple.com")
+	assert.Nil(t, m)
 	assert.Error(t, err, "不正なメールアドレス")
 }

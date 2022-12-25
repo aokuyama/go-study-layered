@@ -17,3 +17,7 @@ type GetUserInfoUseCase interface {
 type GetUserInfoPresenter interface {
 	Render(o GetUserInfoOutput) error
 }
+
+type GetUserInfoUserView struct {
+	Name string
+}

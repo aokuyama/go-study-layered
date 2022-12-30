@@ -19,5 +19,8 @@ func main() {
 	get_user_info := get_user_info.NewGetUserInfoInteractor(p, r)
 	c := controller.NewUserController(get_user_info)
 
-	c.GetUserInfo(user_id)
+	err := c.GetUserInfo(user_id)
+	if err != nil {
+		panic(err)
+	}
 }

@@ -6,8 +6,3 @@ RUN apt-get update && \
     go install -v github.com/rogpeppe/godef@latest
 
 WORKDIR /workspace
-
-COPY ./go.mod ./
-COPY ./go.sum ./
-
-RUN go mod download

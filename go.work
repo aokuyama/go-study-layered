@@ -1,3 +1,7 @@
 go 1.20
 
+use ./domain
+use ./app
+use ./infra
+
 use ./cui

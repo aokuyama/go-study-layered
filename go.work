@@ -7,3 +7,5 @@ use ./app
 use ./infra
 
 use ./cui
+
+use ./http_server

@@ -1,5 +1,3 @@
-github.com/aokuyama/go-study-layered v0.0.0-20221225115347-59ee6f6505c2 h1:yadZ4MGGOveLuUN7Pg/kxWwnTU017ymN+w74snFEIuY=
-github.com/aokuyama/go-study-layered v0.0.0-20221225115347-59ee6f6505c2/go.mod h1:2MoTo7KutGzrzT9Cgoy+CtPDptwflOPpneYXjXOiBjM=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/stretchr/testify v1.8.1 h1:w7B6lhMri9wdJUVmEZPGGhZzrYTPvgJArz7wNPgYKsk=

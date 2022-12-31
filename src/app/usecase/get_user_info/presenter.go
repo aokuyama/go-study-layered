@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/aokuyama/go-study-layered/app/usecase"
-	"github.com/aokuyama/go-study-layered/app/view"
+	"github.com/aokuyama/go-study-layered/src/app/usecase"
+	"github.com/aokuyama/go-study-layered/src/app/view"
 )
 
 type GetUserInfoPresenterCli struct {

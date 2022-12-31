@@ -3,29 +3,29 @@ package user_test
 import (
 	"testing"
 
-	. "github.com/aokuyama/go-study-layered/domain/model/user"
+	. "github.com/aokuyama/go-study-layered/src/domain/model/user"
 
 	"github.com/stretchr/testify/assert"
 )
 
-func TestFirstName(t *testing.T) {
-	var n *FirstName
+func TestLastName(t *testing.T) {
+	var n *LastName
 	var err error
-	n, err = NewFirstName("1")
+	n, err = NewLastName("1")
 	assert.Equal(t, "1", n.String(), "有効な苗字")
 	assert.NoError(t, err)
-	n, err = NewFirstName("ああああああああ")
+	n, err = NewLastName("ああああああああ")
 	assert.Equal(t, "ああああああああ", n.String(), "有効な苗字")
 	assert.NoError(t, err)
 }
 
-func TestErrorFirstName(t *testing.T) {
-	var n *FirstName
+func TestErrorLastName(t *testing.T) {
+	var n *LastName
 	var err error
-	n, err = NewFirstName("")
+	n, err = NewLastName("")
 	assert.Nil(t, n)
 	assert.Error(t, err, "0文字は許容しない")
-	n, err = NewFirstName("ああああああああa")
+	n, err = NewLastName("ああああああああa")
 	assert.Nil(t, n)
 	assert.Error(t, err, "8文字超えは許容しない")
 }

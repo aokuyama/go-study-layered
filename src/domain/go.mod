@@ -1,4 +1,4 @@
-module github.com/aokuyama/go-study-layered/domain
+module github.com/aokuyama/go-study-layered/src/domain
 
 go 1.20
 

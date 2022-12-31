@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 
-	"github.com/aokuyama/go-study-layered/app/controller"
-	"github.com/aokuyama/go-study-layered/app/usecase/get_user_info"
-	"github.com/aokuyama/go-study-layered/infra/database/dummy"
+	"github.com/aokuyama/go-study-layered/src/app/controller"
+	"github.com/aokuyama/go-study-layered/src/app/usecase/get_user_info"
+	"github.com/aokuyama/go-study-layered/src/infra/database/dummy"
 )
 
 func main() {

@@ -1,9 +1,9 @@
 package gin
 
 import (
-	"github.com/aokuyama/go-study-layered/src/app/controller"
-	"github.com/aokuyama/go-study-layered/src/app/usecase/get_user_info"
-	"github.com/aokuyama/go-study-layered/src/infra/database/dummy"
+	"github.com/aokuyama/go-study-layered/packages/app/controller"
+	"github.com/aokuyama/go-study-layered/packages/app/usecase/get_user_info"
+	"github.com/aokuyama/go-study-layered/packages/infra/database/dummy"
 	"github.com/gin-gonic/gin"
 )
 

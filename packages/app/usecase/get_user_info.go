@@ -1,6 +1,6 @@
 package usecase
 
-import "github.com/aokuyama/go-study-layered/src/domain/model/user"
+import "github.com/aokuyama/go-study-layered/packages/domain/model/user"
 
 type GetUserInfoInput struct {
 	UserID user.UserID

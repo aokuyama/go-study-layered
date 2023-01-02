@@ -1,8 +1,8 @@
 package get_user_info
 
 import (
-	"github.com/aokuyama/go-study-layered/src/app/usecase"
-	"github.com/aokuyama/go-study-layered/src/domain/model/user"
+	"github.com/aokuyama/go-study-layered/packages/app/usecase"
+	"github.com/aokuyama/go-study-layered/packages/domain/model/user"
 )
 
 type GetUserInfoInteractor struct {

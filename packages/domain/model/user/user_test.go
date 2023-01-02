@@ -3,7 +3,7 @@ package user_test
 import (
 	"testing"
 
-	. "github.com/aokuyama/go-study-layered/src/domain/model/user"
+	. "github.com/aokuyama/go-study-layered/packages/domain/model/user"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -1,10 +1,10 @@
 go 1.20
 
-use ./src/domain
+use ./packages/domain
 
-use ./src/app
+use ./packages/app
 
-use ./src/infra
+use ./packages/infra
 
 use ./cui
 

@@ -1,14 +1,14 @@
-module github.com/aokuyama/go-study-layered/src/infra
+module github.com/aokuyama/go-study-layered/packages/infra
 
 go 1.20
 
-replace github.com/aokuyama/go-study-layered/src/domain => ../domain
+replace github.com/aokuyama/go-study-layered/packages/domain => ../domain
 
-replace github.com/aokuyama/go-study-layered/src/app => ../app
+replace github.com/aokuyama/go-study-layered/packages/app => ../app
 
 require (
-	github.com/aokuyama/go-study-layered/src/app v0.0.0-00010101000000-000000000000
-	github.com/aokuyama/go-study-layered/src/domain v0.0.0-00010101000000-000000000000
+	github.com/aokuyama/go-study-layered/packages/app v0.0.0-00010101000000-000000000000
+	github.com/aokuyama/go-study-layered/packages/domain v0.0.0-00010101000000-000000000000
 	github.com/gin-gonic/gin v1.8.2
 )
 

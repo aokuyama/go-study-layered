@@ -7,22 +7,24 @@ RUN apt-get update && \
 
 WORKDIR /workspace
 
-COPY ./domain/go.mod ./domain/
-COPY ./domain/go.sum ./domain/
+ARG packages="./packages/"
+COPY ${packages}domain/go.mod ${packages}domain/
+COPY ${packages}domain/go.sum ${packages}domain/
 
-COPY ./app/go.mod ./app/
-COPY ./app/go.sum ./app/
+COPY ${packages}app/go.mod ${packages}app/
+COPY ${packages}app/go.sum ${packages}app/
 
-COPY ./infra/go.mod ./infra/
-COPY ./infra/go.sum ./infra/
+COPY ${packages}infra/go.mod ${packages}infra/
+COPY ${packages}infra/go.sum ${packages}infra/
 
-COPY ./cui/go.mod ./cui/
-COPY ./cui/go.sum ./cui/
+ARG apps="./"
+COPY ${apps}cui/go.mod ${apps}cui/
+COPY ${apps}cui/go.sum ${apps}cui/
 
-COPY ./http_server/go.mod ./http_server/
-COPY ./http_server/go.sum ./http_server/
+COPY ${apps}http_server/go.mod ${apps}http_server/
+COPY ${apps}http_server/go.sum ${apps}http_server/
 
-COPY ./go.work ./
-COPY ./go.work.sum ./
+COPY ${apps}go.work ${apps}
+COPY ${apps}go.work.sum ${apps}
 
 RUN go work sync

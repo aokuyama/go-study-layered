@@ -3,9 +3,8 @@ package main
 import (
 	"flag"
 
-	"github.com/aokuyama/go-study-layered/packages/app/controller"
+	"github.com/aokuyama/go-study-layered/cui/console"
 	"github.com/aokuyama/go-study-layered/packages/app/usecase/get_user_info"
-	"github.com/aokuyama/go-study-layered/packages/infra/database/dummy"
 )
 
 func main() {
@@ -14,10 +13,10 @@ func main() {
 
 	user_id := *f
 
-	p := get_user_info.NewGetUserInfoPresenterCli()
-	r := dummy.UserRepositoryDummy{}
-	get_user_info := get_user_info.NewGetUserInfoInteractor(p, r)
-	c := controller.NewUserController(get_user_info)
+	r := console.Registry{}
+	v := console.View{}
+	p1 := get_user_info.NewGetUserInfoPresenter(v)
+	c := r.UserController(p1)
 
 	err := c.GetUserInfo(user_id)
 	if err != nil {

@@ -1,27 +1,21 @@
 package gin
 
 import (
-	"github.com/aokuyama/go-study-layered/packages/app/controller"
 	"github.com/aokuyama/go-study-layered/packages/app/usecase/get_user_info"
-	"github.com/aokuyama/go-study-layered/packages/infra/database/dummy"
+	"github.com/aokuyama/go-study-layered/packages/infra/registry"
 	"github.com/gin-gonic/gin"
 )
 
-func Server() *gin.Engine {
-	r := gin.Default()
-	r.GET("/health_check", func(c *gin.Context) {
+func Server(r registry.Registry) *gin.Engine {
+	g := gin.Default()
+	g.GET("/health_check", func(c *gin.Context) {
 		c.String(200, "OK")
 	})
-	r.GET("/users/:user_id", get_user_info_c)
-	return r
-}
-
-func get_user_info_c(c *gin.Context) {
-	user_id := c.Param("user_id")
-	v := GinView{c}
-	p := get_user_info.NewGetUserInfoPresenterHttp(v)
-	r := dummy.UserRepositoryDummy{}
-	i := get_user_info.NewGetUserInfoInteractor(p, r)
-	con := controller.NewUserController(i)
-	con.GetUserInfo(user_id)
+	g.GET("/users/:user_id", func(c *gin.Context) {
+		user_id := c.Param("user_id")
+		v := View{c}
+		p1 := get_user_info.NewGetUserInfoPresenter(v)
+		r.UserController(p1).GetUserInfo(user_id)
+	})
+	return g
 }

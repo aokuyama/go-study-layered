@@ -18,6 +18,11 @@ type GetUserInfoPresenter interface {
 	Render(o GetUserInfoOutput) error
 }
 
-type GetUserInfoUserView struct {
-	Name string
+type GetUserInfoViewModel struct {
+	IsFound bool
+	Name    string
+}
+
+type GetUserInfoView interface {
+	UpdateGetUserInfo(m GetUserInfoViewModel) error
 }

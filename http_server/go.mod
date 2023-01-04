@@ -8,10 +8,12 @@ replace github.com/aokuyama/go-study-layered/packages/app => ../packages/app
 
 replace github.com/aokuyama/go-study-layered/packages/infra => ../packages/infra
 
-require github.com/aokuyama/go-study-layered/packages/infra v0.0.0-00010101000000-000000000000
+require (
+	github.com/aokuyama/go-study-layered/packages/app v0.0.0-00010101000000-000000000000
+	github.com/aokuyama/go-study-layered/packages/infra v0.0.0-00010101000000-000000000000
+)
 
 require (
-	github.com/aokuyama/go-study-layered/packages/app v0.0.0-00010101000000-000000000000 // indirect
 	github.com/aokuyama/go-study-layered/packages/domain v0.0.0-00010101000000-000000000000 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.8.2 // indirect

@@ -2,10 +2,8 @@ package get_user_info
 
 import (
 	"fmt"
-	"net/http"
 
 	"github.com/aokuyama/go-study-layered/packages/app/usecase"
-	"github.com/aokuyama/go-study-layered/packages/app/view"
 )
 
 type GetUserInfoPresenterCli struct {
@@ -24,20 +22,19 @@ func (p GetUserInfoPresenterCli) Render(o usecase.GetUserInfoOutput) error {
 	return nil
 }
 
-type GetUserInfoPresenterHttp struct {
-	View view.HttpView
+type GetUserInfoPresenter struct {
+	View usecase.GetUserInfoView
 }
 
-func NewGetUserInfoPresenterHttp(v view.HttpView) GetUserInfoPresenterHttp {
-	return GetUserInfoPresenterHttp{v}
+func NewGetUserInfoPresenter(v usecase.GetUserInfoView) GetUserInfoPresenter {
+	return GetUserInfoPresenter{v}
 }
 
-func (p GetUserInfoPresenterHttp) Render(o usecase.GetUserInfoOutput) error {
+func (p GetUserInfoPresenter) Render(o usecase.GetUserInfoOutput) error {
 	if o.User == nil {
-		p.View.String(http.StatusNotFound, "user not exist")
-		return nil
+		m := usecase.GetUserInfoViewModel{IsFound: false, Name: ""}
+		return p.View.UpdateGetUserInfo(m)
 	}
-	v := usecase.GetUserInfoUserView{Name: o.User.FirstName.String()}
-	p.View.Json(http.StatusOK, v)
-	return nil
+	m := usecase.GetUserInfoViewModel{IsFound: true, Name: o.User.FirstName.String()}
+	return p.View.UpdateGetUserInfo(m)
 }

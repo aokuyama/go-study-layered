@@ -11,10 +11,10 @@ func TestEnableUser(t *testing.T) {
 	var u *User
 	var err error
 	u, err = New("太郎", "山田", "ok@example.com")
-	assert.Equal(t, `{"id":null,"first_name":"太郎","last_name":"山田","email":"ok@example.com"}`, u.String(), "有効なユーザー")
+	assert.Equal(t, `{"id":"","name":"山田 太郎","email":"ok@example.com"}`, u.String(), "有効なユーザー")
 	assert.NoError(t, err)
 	u, err = Load("123456789", "太郎", "山田", "ok@example.com")
-	assert.Equal(t, `{"id":"123456789","first_name":"太郎","last_name":"山田","email":"ok@example.com"}`, u.String(), "有効なユーザー")
+	assert.Equal(t, `{"id":"123456789","name":"山田 太郎","email":"ok@example.com"}`, u.String(), "有効なユーザー")
 	assert.NoError(t, err)
 }
 

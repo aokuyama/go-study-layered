@@ -17,6 +17,6 @@ func (p GetUserInfoPresenter) Render(o usecase.GetUserInfoOutput) error {
 		m := usecase.GetUserInfoViewModel{IsFound: false, Name: ""}
 		return p.View.UpdateGetUserInfo(m)
 	}
-	m := usecase.GetUserInfoViewModel{IsFound: true, Name: o.User.FirstName.String()}
+	m := usecase.GetUserInfoViewModel{IsFound: true, Name: o.User.FullName()}
 	return p.View.UpdateGetUserInfo(m)
 }

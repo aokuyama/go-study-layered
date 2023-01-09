@@ -6,10 +6,9 @@ import (
 )
 
 type User struct {
-	ID        *UserID   `json:"id"`
-	FirstName FirstName `json:"first_name"`
-	LastName  LastName  `json:"last_name"`
-	Email     Email     `json:"email"`
+	id    *UserID
+	name  Name
+	email Email
 }
 
 func New(
@@ -17,19 +16,17 @@ func New(
 	last_name string,
 	email string,
 ) (*User, error) {
-	f, err2 := NewFirstName(first_name)
-	l, err3 := NewLastName(last_name)
-	m, err4 := NewEmail(email)
+	n, err2 := NewName(first_name, last_name)
+	m, err3 := NewEmail(email)
 
-	err := errors.Join(err2, err3, err4)
+	err := errors.Join(err2, err3)
 	if err != nil {
 		return nil, err
 	}
 
 	u := User{
 		nil,
-		*f,
-		*l,
+		*n,
 		*m,
 	}
 	return &u, nil
@@ -42,19 +39,17 @@ func Load(
 	email string,
 ) (*User, error) {
 	i, err1 := NewUserID(id)
-	f, err2 := NewFirstName(first_name)
-	l, err3 := NewLastName(last_name)
-	m, err4 := NewEmail(email)
+	n, err2 := NewName(first_name, last_name)
+	m, err3 := NewEmail(email)
 
-	err := errors.Join(err1, err2, err3, err4)
+	err := errors.Join(err1, err2, err3)
 	if err != nil {
 		return nil, err
 	}
 
 	u := User{
 		i,
-		*f,
-		*l,
+		*n,
 		*m,
 	}
 	return &u, nil
@@ -66,4 +61,25 @@ func (u *User) String() string {
 		panic(err)
 	}
 	return string(j)
+}
+
+func (u *User) FullName() string {
+	return u.name.FullName()
+}
+
+func (u User) MarshalJSON() ([]byte, error) {
+	var i string
+	if u.id != nil {
+		i = u.id.String()
+	}
+	v, err := json.Marshal(&struct {
+		ID    string `json:"id"`
+		Name  string `json:"name"`
+		Email string `json:"email"`
+	}{
+		ID:    i,
+		Name:  u.name.FullName(),
+		Email: u.email.String(),
+	})
+	return v, err
 }

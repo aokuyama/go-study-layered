@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./:/workspace
-    working_dir: /workspace
+      - ./:/workspaces/app
+    working_dir: /workspaces/app
     tty: true
+    environment:
+      - TZ=${TZ:-}

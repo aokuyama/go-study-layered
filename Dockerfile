@@ -1,4 +1,4 @@
-FROM golang:1.20rc1
+FROM golang:1.20.5
 
 RUN apt-get update && \
     go install -v golang.org/x/tools/gopls@latest && \

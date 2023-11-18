@@ -5,7 +5,7 @@ RUN apt-get update && \
     go install -v github.com/stamblerre/gocode@latest && \
     go install -v github.com/rogpeppe/godef@latest
 
-WORKDIR /workspace
+WORKDIR /workspaces
 
 ARG packages="./packages/"
 COPY ${packages}domain/go.mod ${packages}domain/
